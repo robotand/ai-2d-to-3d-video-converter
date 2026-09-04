@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR_DOMAIN_OR_GITHUB_PAGES_URL/sitemap.xml
+Sitemap: https://robotand.github.io/ai-2d-to-3d-video-converter/sitemap.xml
