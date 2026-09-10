@@ -3,123 +3,713 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>AI 2D to 3D Video Converter for Windows | Vistora AI 3D</title>
   <meta name="description" content="Vistora AI 3D Converter Pro is an AI 2D to 3D video converter for Windows. Convert 2D video to Half-OU, Full-OU, Half-SBS and Full-SBS locally on your NVIDIA GPU PC.">
   <meta name="keywords" content="2D to 3D converter, AI 2D to 3D video converter, 2D video to 3D converter, AI 3D converter, Half-OU, Full-OU, Half-SBS, Full-SBS, VR headset, 3D projector, 3D TV, Windows NVIDIA GPU">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#030711">
+
   <link rel="canonical" href="https://robotand.github.io/ai-2d-to-3d-video-converter/">
   <link rel="icon" href="assets/favicon.png">
+
   <meta property="og:title" content="AI 2D to 3D Video Converter for Windows | Vistora AI 3D">
-  <meta property="og:description" content="Convert 2D video into immersive stereoscopic 3D locally on your Windows PC.">
+  <meta property="og:description" content="Convert 2D video into stereoscopic 3D locally on your Windows PC with an NVIDIA GPU. Free Trial available.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://robotand.github.io/ai-2d-to-3d-video-converter/">
-  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:image" content="https://robotand.github.io/ai-2d-to-3d-video-converter/assets/og-image.jpg">
+  <meta property="og:image:alt" content="Vistora AI 3D video converter">
   <meta name="twitter:card" content="summary_large_image">
+
   <style>
     :root{
-      --bg:#030711;--bg2:#071426;--card:rgba(9,22,43,.78);--card2:rgba(5,13,28,.92);
-      --line:rgba(105,211,255,.23);--text:#eef8ff;--muted:#b8cadd;--blue:#10a8ff;
-      --blue2:#005bff;--cyan:#58f2ff;--green:#3bf58f;--warn:#ffd166;
-      --shadow:0 24px 80px rgba(0,121,255,.18)
+      --bg:#030711;
+      --bg2:#071426;
+      --card:rgba(9,22,43,.78);
+      --card2:rgba(5,13,28,.92);
+      --line:rgba(105,211,255,.23);
+      --text:#eef8ff;
+      --muted:#b8cadd;
+      --blue:#10a8ff;
+      --blue2:#005bff;
+      --cyan:#58f2ff;
+      --green:#3bf58f;
+      --shadow:0 24px 80px rgba(0,121,255,.18);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;color:var(--text);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;
+      margin:0;
+      color:var(--text);
+      font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.55;
       background:
         radial-gradient(circle at 72% 12%, rgba(0,108,255,.25), transparent 30%),
         radial-gradient(circle at 15% 20%, rgba(0,232,255,.13), transparent 26%),
-        linear-gradient(180deg,#02050b 0%, #06101f 50%, #030711 100%);
+        linear-gradient(180deg,#02050b 0%,#06101f 50%,#030711 100%);
     }
-    a{color:inherit}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
-    .topbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(16px);background:rgba(2,7,17,.78);border-bottom:1px solid rgba(87,190,255,.16)}
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .brand img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 24px rgba(0,170,255,.45)}
-    .brand strong{display:block;font-size:18px;letter-spacing:.4px}
-    .brand span span{display:block;font-size:12px;color:var(--muted);margin-top:-2px}
-    .navlinks{display:flex;gap:18px;align-items:center;font-size:14px;color:#d8ebff}
-    .navlinks a{text-decoration:none;opacity:.88}.navlinks a:hover{opacity:1;color:var(--cyan)}
+
+    a{color:inherit}
+    img{max-width:100%}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(16px);
+      background:rgba(2,7,17,.86);
+      border-bottom:1px solid rgba(87,190,255,.16);
+    }
+
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      flex-shrink:0;
+    }
+
+    .brand img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      box-shadow:0 0 24px rgba(0,170,255,.45);
+    }
+
+    .brand strong{
+      display:block;
+      font-size:18px;
+      letter-spacing:.4px;
+    }
+
+    .brand small{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:-2px;
+    }
+
+    .navlinks{
+      display:flex;
+      gap:17px;
+      align-items:center;
+      font-size:14px;
+      color:#d8ebff;
+      margin-left:auto;
+    }
+
+    .navlinks a{
+      text-decoration:none;
+      opacity:.88;
+    }
+
+    .navlinks a:hover{
+      opacity:1;
+      color:var(--cyan);
+    }
+
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 20px;border-radius:999px;
-      text-decoration:none;font-weight:900;border:1px solid rgba(129,217,255,.42);
-      background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;box-shadow:0 16px 40px rgba(0,112,255,.32);
-      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;white-space:nowrap
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 20px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:900;
+      border:1px solid rgba(129,217,255,.42);
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:white;
+      box-shadow:0 16px 40px rgba(0,112,255,.32);
+      transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+      white-space:nowrap;
     }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 24px 50px rgba(0,156,255,.42);border-color:rgba(184,240,255,.75)}
-    .btn.secondary{background:rgba(10,28,54,.70);box-shadow:none}.btn.ghost{background:transparent;box-shadow:none;border-color:rgba(255,255,255,.25);font-weight:800}
-    .hero{position:relative;overflow:hidden;padding:76px 0 54px;border-bottom:1px solid rgba(73,172,255,.14)}
-    .hero:after{content:"";position:absolute;inset:auto -10% -28% -10%;height:260px;background:radial-gradient(ellipse,rgba(0,160,255,.22),transparent 70%);pointer-events:none}
-    .hero-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:42px;align-items:center;position:relative;z-index:1}
-    .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border-radius:999px;background:rgba(5,22,44,.72);border:1px solid rgba(66,195,255,.35);color:#bff3ff;font-weight:900;font-size:13px;letter-spacing:.42px;text-transform:uppercase}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
-    h1{font-size:clamp(42px,6vw,76px);line-height:.98;margin:20px 0 18px;letter-spacing:-2.2px}
-    .gradient{background:linear-gradient(90deg,#fff 0%,#9ee9ff 34%,#28b6ff 66%,#ffffff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .lead{font-size:clamp(18px,2.2vw,23px);color:#d7e9fb;max-width:640px;margin:0 0 26px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 22px}
-    .trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;color:#c7daec;font-size:14px}
-    .pill{border:1px solid rgba(116,210,255,.24);background:rgba(0,15,32,.48);padding:9px 12px;border-radius:999px}
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 24px 50px rgba(0,156,255,.42);
+      border-color:rgba(184,240,255,.75);
+    }
+
+    .btn.secondary{
+      background:rgba(10,28,54,.70);
+      box-shadow:none;
+    }
+
+    .btn.ghost{
+      background:transparent;
+      box-shadow:none;
+      border-color:rgba(255,255,255,.25);
+      font-weight:800;
+    }
+
+    .btn.small{
+      padding:10px 15px;
+      font-size:13px;
+      flex-shrink:0;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 0 58px;
+      border-bottom:1px solid rgba(73,172,255,.14);
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -28% -10%;
+      height:260px;
+      background:radial-gradient(ellipse,rgba(0,160,255,.22),transparent 70%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:.86fr 1.14fr;
+      gap:42px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(5,22,44,.72);
+      border:1px solid rgba(66,195,255,.35);
+      color:#bff3ff;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:.42px;
+      text-transform:uppercase;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 12px var(--green);
+    }
+
+    h1{
+      font-size:clamp(42px,6vw,76px);
+      line-height:.98;
+      margin:20px 0 18px;
+      letter-spacing:-2.2px;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,#fff 0%,#9ee9ff 34%,#28b6ff 66%,#ffffff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      font-size:clamp(18px,2.2vw,23px);
+      color:#d7e9fb;
+      max-width:650px;
+      margin:0 0 20px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin:28px 0 13px;
+    }
+
+    .microcopy{
+      margin:0;
+      color:#aebfd0;
+      font-size:14px;
+    }
+
+    .microcopy a{
+      color:#c8f4ff;
+      font-weight:800;
+      text-decoration:none;
+      border-bottom:1px solid rgba(88,242,255,.45);
+    }
+
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+      color:#c7daec;
+      font-size:14px;
+    }
+
+    .pill{
+      border:1px solid rgba(116,210,255,.24);
+      background:rgba(0,15,32,.48);
+      padding:9px 12px;
+      border-radius:999px;
+    }
+
     .mockup{position:relative}
-    .mockup img{width:100%;display:block;border-radius:30px;border:1px solid rgba(128,219,255,.26);box-shadow:0 32px 100px rgba(0,80,220,.25)}
-    .mock-note{position:absolute;left:22px;bottom:20px;right:22px;display:flex;gap:10px;flex-wrap:wrap}
-    .mock-note span{padding:8px 11px;border-radius:999px;background:rgba(0,0,0,.56);border:1px solid rgba(134,226,255,.24);font-size:13px;color:#d7f1ff;font-weight:800}
-    .section{padding:76px 0}.section.compact{padding:42px 0}
-    .section-title{max-width:790px;margin:0 auto 34px;text-align:center}
-    .section-title h2{font-size:clamp(30px,4vw,50px);line-height:1.05;margin:0 0 12px;letter-spacing:-1.3px}.section-title p{margin:0;color:var(--muted);font-size:18px}
-    .grid{display:grid;gap:18px}.features{grid-template-columns:repeat(4,1fr)}
-    .card{background:linear-gradient(180deg,rgba(11,31,59,.78),rgba(4,13,28,.88));border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .card h3{margin:0 0 8px;font-size:20px}.card p{margin:0;color:#b9cadb}
-    .icon{width:52px;height:52px;border-radius:17px;display:flex;align-items:center;justify-content:center;background:rgba(0,149,255,.13);border:1px solid rgba(100,220,255,.28);color:#7ceaff;font-size:28px;margin-bottom:18px}
-    .steps{grid-template-columns:repeat(4,1fr);counter-reset:step}
-    .step{min-height:210px}.step:before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:900;margin-bottom:16px;box-shadow:0 0 30px rgba(0,164,255,.38)}
-    .demo-panel{display:grid;grid-template-columns:1fr .9fr;gap:24px;align-items:center;background:linear-gradient(135deg,rgba(9,31,62,.72),rgba(5,12,24,.84));border:1px solid rgba(94,201,255,.22);border-radius:30px;padding:28px;box-shadow:var(--shadow)}
-    .demo-preview{display:block;text-decoration:none;color:white;position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(160,230,255,.26);background:linear-gradient(135deg,rgba(0,22,56,.5),rgba(0,0,0,.65))}
-    .demo-preview img{width:100%;display:block;opacity:.72;transform:scale(1.02)}
-    .demo-preview:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.68))}
-    .play-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;display:flex;align-items:center;gap:14px;padding:16px 22px;border-radius:999px;background:rgba(3,10,22,.82);border:1px solid rgba(210,250,255,.50);box-shadow:0 20px 70px rgba(0,0,0,.50),0 0 44px rgba(0,164,255,.30);font-weight:900}
-    .play-card span{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#00c8ff,#005bff);padding-left:3px}
-    .demo-caption{position:absolute;left:18px;bottom:16px;right:18px;z-index:2;display:flex;justify-content:space-between;gap:12px;color:#d6efff;font-size:14px;font-weight:800}
-    .chip{padding:7px 10px;border-radius:999px;background:rgba(0,0,0,.50);border:1px solid rgba(150,230,255,.28);white-space:nowrap}
-    .demo-copy h2{font-size:42px;line-height:1.05;margin:0 0 14px}.demo-copy p{color:var(--muted);font-size:18px;margin:0 0 18px}
-    .checks,.list{list-style:none;padding:0;margin:20px 0 0}.checks li,.list li{display:flex;gap:10px;margin:11px 0;color:#d8e8f8}.checks li:before,.list li:before{content:"✓";color:var(--green);font-weight:900}
-    .formats{grid-template-columns:repeat(4,1fr)}.format-card{text-align:center;padding:28px 18px}.format-card strong{display:block;font-size:28px}.format-card span{display:block;color:var(--muted);margin-top:6px}
-    .pricing{grid-template-columns:repeat(2,1fr);align-items:stretch;max-width:940px;margin:0 auto}.price-card{padding:34px;border-radius:28px}.price-card.highlight{border-color:rgba(66,226,255,.62);box-shadow:0 30px 100px rgba(0,141,255,.28)}
-    .price{font-size:44px;font-weight:900;letter-spacing:-1px;margin:12px 0}.price small{font-size:16px;color:var(--muted);font-weight:700}
-    .requirements{grid-template-columns:1fr 1fr}.download-box{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:linear-gradient(135deg,rgba(0,100,255,.17),rgba(0,230,255,.08));border:1px solid rgba(105,216,255,.24);padding:28px;border-radius:28px}
-    .note{color:#b9c8d8;font-size:14px;margin-top:12px}.legal{border-top:1px solid rgba(94,201,255,.14);color:#aebdca;font-size:14px;background:rgba(0,0,0,.26)}
-    footer{padding:34px 0;color:#8ea4b8;font-size:14px;text-align:center}
 
     .mockup img{
+      width:100%;
+      display:block;
       border-radius:34px;
       border:1px solid rgba(151,231,255,.38);
-      box-shadow:0 42px 130px rgba(0,120,255,.34), 0 0 0 1px rgba(255,255,255,.04) inset;
-    }
-    .hero-grid{
-      grid-template-columns:.86fr 1.14fr;
-    }
-    .mock-note span{
-      background:rgba(0,12,28,.68);
-      backdrop-filter:blur(10px);
-      border-color:rgba(130,226,255,.38);
+      box-shadow:0 42px 130px rgba(0,120,255,.34),0 0 0 1px rgba(255,255,255,.04) inset;
     }
 
-    @media (max-width:950px){
-      .navlinks{display:none}.hero-grid,.features,.steps,.demo-panel,.formats,.pricing,.requirements,.download-box{grid-template-columns:1fr}
-      .hero{padding-top:52px}.hero-actions .btn{width:100%}.demo-copy h2{font-size:34px}
+    .mock-note{
+      position:absolute;
+      left:22px;
+      bottom:20px;
+      right:22px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .mock-note span{
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(0,12,28,.68);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(130,226,255,.38);
+      font-size:13px;
+      color:#d7f1ff;
+      font-weight:800;
+    }
+
+    .section{padding:76px 0}
+    .section.compact{padding:42px 0}
+
+    .section-title{
+      max-width:810px;
+      margin:0 auto 34px;
+      text-align:center;
+    }
+
+    .section-title h2{
+      font-size:clamp(30px,4vw,50px);
+      line-height:1.05;
+      margin:0 0 12px;
+      letter-spacing:-1.3px;
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .grid{display:grid;gap:18px}
+
+    .features{
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .card{
+      background:linear-gradient(180deg,rgba(11,31,59,.78),rgba(4,13,28,.88));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card h3{margin:0 0 8px;font-size:20px}
+    .card p{margin:0;color:#b9cadb}
+
+    .icon{
+      width:52px;
+      height:52px;
+      border-radius:17px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,149,255,.13);
+      border:1px solid rgba(100,220,255,.28);
+      color:#7ceaff;
+      font-size:28px;
+      margin-bottom:18px;
+    }
+
+    .steps{
+      grid-template-columns:repeat(4,1fr);
+      counter-reset:step;
+    }
+
+    .step{min-height:210px}
+
+    .step:before{
+      counter-increment:step;
+      content:counter(step);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      font-weight:900;
+      margin-bottom:16px;
+      box-shadow:0 0 30px rgba(0,164,255,.38);
+    }
+
+    .demo-panel{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:24px;
+      align-items:center;
+      background:linear-gradient(135deg,rgba(9,31,62,.72),rgba(5,12,24,.84));
+      border:1px solid rgba(94,201,255,.22);
+      border-radius:30px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .demo-preview{
+      display:block;
+      text-decoration:none;
+      color:white;
+      position:relative;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(160,230,255,.26);
+      background:linear-gradient(135deg,rgba(0,22,56,.5),rgba(0,0,0,.65));
+    }
+
+    .demo-preview img{
+      width:100%;
+      display:block;
+      opacity:.76;
+      transform:scale(1.02);
+    }
+
+    .demo-preview:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.68));
+    }
+
+    .play-card{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      z-index:2;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:16px 22px;
+      border-radius:999px;
+      background:rgba(3,10,22,.82);
+      border:1px solid rgba(210,250,255,.50);
+      box-shadow:0 20px 70px rgba(0,0,0,.50),0 0 44px rgba(0,164,255,.30);
+      font-weight:900;
+    }
+
+    .play-card span{
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#00c8ff,#005bff);
+      padding-left:3px;
+    }
+
+    .demo-caption{
+      position:absolute;
+      left:18px;
+      bottom:16px;
+      right:18px;
+      z-index:2;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      color:#d6efff;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.50);
+      border:1px solid rgba(150,230,255,.28);
+      white-space:nowrap;
+    }
+
+    .demo-copy h2{
+      font-size:42px;
+      line-height:1.05;
+      margin:0 0 14px;
+    }
+
+    .demo-copy p{
+      color:var(--muted);
+      font-size:18px;
+      margin:0 0 18px;
+    }
+
+    .checks,.list{
+      list-style:none;
+      padding:0;
+      margin:20px 0 0;
+    }
+
+    .checks li,.list li{
+      display:flex;
+      gap:10px;
+      margin:11px 0;
+      color:#d8e8f8;
+    }
+
+    .checks li:before,.list li:before{
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .formats{grid-template-columns:repeat(4,1fr)}
+
+    .format-card{
+      text-align:center;
+      padding:28px 18px;
+    }
+
+    .format-card strong{
+      display:block;
+      font-size:28px;
+    }
+
+    .format-card span{
+      display:block;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .pricing{
+      grid-template-columns:repeat(2,1fr);
+      align-items:stretch;
+      max-width:940px;
+      margin:0 auto;
+    }
+
+    .price-card{
+      padding:34px;
+      border-radius:28px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .price-card.highlight{
+      border-color:rgba(66,226,255,.62);
+      box-shadow:0 30px 100px rgba(0,141,255,.28);
+    }
+
+    .price{
+      font-size:40px;
+      line-height:1.05;
+      font-weight:900;
+      letter-spacing:-1px;
+      margin:12px 0;
+    }
+
+    .price small{
+      display:block;
+      font-size:15px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:0;
+      margin-top:8px;
+    }
+
+    .price-card .btn{margin-top:auto;align-self:flex-start}
+
+    .requirements{
+      grid-template-columns:1fr 1fr;
+    }
+
+    .faq{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      gap:12px;
+    }
+
+    details{
+      background:linear-gradient(180deg,rgba(11,31,59,.74),rgba(4,13,28,.86));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:0 20px;
+      box-shadow:0 12px 50px rgba(0,80,180,.10);
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      padding:18px 4px;
+      color:#e7f7ff;
+    }
+
+    details p{
+      margin:0 4px 20px;
+      color:var(--muted);
+    }
+
+    .download-box{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+      align-items:center;
+      background:linear-gradient(135deg,rgba(0,100,255,.19),rgba(0,230,255,.09));
+      border:1px solid rgba(105,216,255,.28);
+      padding:34px;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .download-box h2{
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.05;
+      margin:0 0 12px;
+    }
+
+    .cta-actions{
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:12px;
+    }
+
+    .cta-actions .btn{width:100%}
+
+    .note{
+      color:#b9c8d8;
+      font-size:14px;
+      margin-top:12px;
+    }
+
+    .legal{
+      border-top:1px solid rgba(94,201,255,.14);
+      color:#aebdca;
+      font-size:14px;
+      background:rgba(0,0,0,.26);
+    }
+
+    footer{
+      padding:34px 0;
+      color:#8ea4b8;
+      font-size:14px;
+      text-align:center;
+    }
+
+    footer a{
+      color:#bdefff;
+      text-decoration:none;
+    }
+
+    a:focus-visible,summary:focus-visible{
+      outline:2px solid var(--cyan);
+      outline-offset:4px;
+    }
+
+    @media (max-width:980px){
+      .navlinks{display:none}
+      .hero-grid,.features,.steps,.demo-panel,.formats,.pricing,.requirements,.download-box{
+        grid-template-columns:1fr;
+      }
+      .hero{padding-top:52px}
+      .hero-actions .btn{width:100%}
+      .demo-copy h2{font-size:34px}
+      .mockup{margin-top:8px}
+    }
+
+    @media (max-width:620px){
+      .wrap{padding:0 16px}
+      .brand small{display:none}
+      .brand strong{font-size:16px}
+      .brand img{width:40px;height:40px}
+      .btn.small{padding:9px 12px}
+      .hero{padding:42px 0 44px}
+      .section{padding:58px 0}
+      .mock-note{position:static;margin-top:12px}
+      .demo-caption{font-size:12px}
+      .chip{display:none}
+      .download-box{padding:24px}
     }
   </style>
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Vistora AI 3D Converter Pro","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","description":"AI 2D to 3D video converter for Windows. Converts 2D video to Half-OU, Full-OU, Half-SBS and Full-SBS locally on a Windows PC with NVIDIA GPU.","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/PreOrder"}}
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Vistora AI 3D Converter Pro",
+    "applicationCategory":"MultimediaApplication",
+    "operatingSystem":"Windows 10, Windows 11",
+    "url":"https://robotand.github.io/ai-2d-to-3d-video-converter/",
+    "downloadUrl":"https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe",
+    "description":"AI 2D to 3D video converter for Windows. Converts 2D video to Half-OU, Full-OU, Half-SBS and Full-SBS locally on a Windows PC with an NVIDIA GPU.",
+    "softwareRequirements":"Windows 10 or Windows 11; NVIDIA GPU recommended; recent NVIDIA driver; SSD recommended.",
+    "featureList":[
+      "Local AI video processing",
+      "Half-OU output",
+      "Full-OU output",
+      "Half-SBS output",
+      "Full-SBS output",
+      "Free Trial",
+      "Downloadable Half-SBS 3D sample"
+    ],
+    "sameAs":[
+      "https://www.youtube.com/@VistoraAI3D"
+    ]
+  }
   </script>
 </head>
+
 <body>
 <header class="topbar">
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/vistora-logo.png" alt="Vistora AI 3D logo"><span><strong>Vistora AI 3D</strong><span>AI 2D to 3D Video Converter</span></span></a>
-    <nav class="navlinks">
-      <a href="#how">How it works</a><a href="#demo">Demo</a><a href="#formats">Formats</a><a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform">Request Pro Early Access</a>
-        <p class="lead" style="font-size:15px;margin-top:14px">Pro Early Access is currently handled manually. <a href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform" target="_blank" rel="noopener">Open request form</a>.</p><a target="_blank" rel="noopener" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">Download</a>
+    <a class="brand" href="#top" aria-label="Vistora AI 3D home">
+      <img src="assets/vistora-logo.png" alt="Vistora AI 3D logo">
+      <span>
+        <strong>Vistora AI 3D</strong>
+        <small>AI 2D to 3D Video Converter</small>
+      </span>
+    </a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#demo">Demo &amp; 3D Sample</a>
+      <a href="#formats">Formats</a>
+      <a href="#pricing">Trial &amp; Pro</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#faq">FAQ</a>
     </nav>
+
+    <a class="btn small" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">
+      Download Free Trial
+    </a>
   </div>
 </header>
 
@@ -128,70 +718,167 @@
     <div class="wrap hero-grid">
       <div>
         <div class="badge"><span class="dot"></span> Windows desktop app • Local processing</div>
+
         <h1><span class="gradient">AI 2D to 3D Video Converter for Windows</span></h1>
-        <p class="lead">Turn flat 2D video into immersive stereoscopic 3D for VR headsets, 3D projectors, and 3D TVs — locally on your NVIDIA GPU PC.</p>
+
+        <p class="lead">
+          Turn flat 2D video into immersive stereoscopic 3D for VR headsets,
+          3D projectors and 3D TVs — locally on your NVIDIA GPU PC.
+        </p>
+
         <div class="hero-actions">
-          <a target="_blank" rel="noopener" class="btn" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">Download Free Trial</a>
-        <p class="lead" style="font-size:15px;margin-top:14px">Direct installer link: <a href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe" target="_blank" rel="noopener">Download Vistora AI 3D Free Trial</a></p>
-          <a target="_blank" rel="noopener" class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform">Request Pro Early Access</a>
-        <p class="lead" style="font-size:15px;margin-top:14px">Pro Early Access is currently handled manually. Submit a request to receive license information.</p>
-          <a class="btn ghost" href="https://youtu.be/eYxquKr1FzU" target="_blank" rel="noopener">See demo</a>
+          <a class="btn" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">
+            Download Free Trial
+          </a>
+          <a class="btn secondary" href="https://youtu.be/eYxquKr1FzU" target="_blank" rel="noopener">
+            Watch Product Demo on YouTube
+          </a>
         </div>
-        <div class="trust">
-          <span class="pill">Half-OU</span><span class="pill">Full-OU</span><span class="pill">Half-SBS</span><span class="pill">Full-SBS</span><span class="pill">No cloud upload</span>
+
+        <p class="microcopy">
+          Free Trial: up to 90 seconds + watermark.
+          Already tested it?
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform" target="_blank" rel="noopener">
+            Request Pro Early Access
+          </a>.
+        </p>
+
+        <div class="trust" aria-label="Key product features">
+          <span class="pill">Free Trial</span>
+          <span class="pill">Local NVIDIA GPU processing</span>
+          <span class="pill">No cloud video upload</span>
+          <span class="pill">Half-OU / Full-OU</span>
+          <span class="pill">Half-SBS / Full-SBS</span>
         </div>
       </div>
+
       <div class="mockup">
-        <img src="assets/product-mockup.jpg?v=19j" alt="Vistora AI 3D mech robot 2D to 3D converter hero visual">
-        <div class="mock-note"><span>2D → 3D</span><span>AI conversion</span><span>VR / Projector / TV</span><span>Half-OU / SBS</span></div>
+        <img src="assets/product-mockup.jpg?v=19j" alt="Vistora AI 3D Converter interface and 3D output visual">
+        <div class="mock-note">
+          <span>2D → 3D</span>
+          <span>AI conversion</span>
+          <span>VR / Projector / TV</span>
+          <span>OU / SBS</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section compact">
+  <section class="section compact" aria-label="Product benefits">
     <div class="wrap grid features">
-      <div class="card"><div class="icon">⚡</div><h3>Local AI conversion</h3><p>Your video is processed on your Windows PC instead of being uploaded to a cloud converter.</p></div>
-      <div class="card"><div class="icon">🎥</div><h3>3D video files</h3><p>Create stereoscopic files you can transfer to compatible players and displays.</p></div>
-      <div class="card"><div class="icon">🕶️</div><h3>VR / projector / TV</h3><p>Designed for common 3D viewing workflows, from VR players to 3D projectors.</p></div>
-      <div class="card"><div class="icon">🎚️</div><h3>Depth control</h3><p>Use safer cinematic depth or stronger 3D settings depending on the source video.</p></div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Local AI conversion</h3>
+        <p>Your video is processed on your Windows PC instead of being uploaded to a cloud converter.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎥</div>
+        <h3>Ready-to-play 3D files</h3>
+        <p>Create stereoscopic output files for compatible VR players, projectors and 3D displays.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🕶️</div>
+        <h3>VR / projector / TV</h3>
+        <p>Choose common stereoscopic formats for the playback equipment you already use.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎚️</div>
+        <h3>Depth control</h3>
+        <p>Use safer cinematic depth or a stronger 3D effect depending on the source and your preference.</p>
+      </div>
     </div>
   </section>
 
   <section class="section" id="how">
     <div class="wrap">
-      <div class="section-title"><h2>From 2D source to 3D output</h2><p>A simple desktop workflow for users who already have a Windows PC and a 3D playback device.</p></div>
+      <div class="section-title">
+        <h2>From 2D source to 3D output</h2>
+        <p>A straightforward desktop workflow for Windows users with an NVIDIA GPU and a compatible 3D playback device.</p>
+      </div>
+
       <div class="grid steps">
-        <div class="card step"><h3>Select a 2D video</h3><p>Choose a video file from your PC.</p></div>
-        <div class="card step"><h3>Choose output format</h3><p>Select Half-OU, Full-OU, Half-SBS, or Full-SBS.</p></div>
-        <div class="card step"><h3>Run local AI conversion</h3><p>The app estimates depth and creates left/right stereoscopic views.</p></div>
-        <div class="card step"><h3>Watch in 3D</h3><p>Open the result in a compatible VR player, 3D projector setup, or 3D TV workflow.</p></div>
+        <div class="card step">
+          <h3>Select a 2D video</h3>
+          <p>Choose the source video file from your PC.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Choose output format</h3>
+          <p>Select Half-OU, Full-OU, Half-SBS or Full-SBS.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Run local AI conversion</h3>
+          <p>The app estimates scene depth and creates stereoscopic left/right views.</p>
+        </div>
+
+        <div class="card step">
+          <h3>Watch in 3D</h3>
+          <p>Open the result in your compatible VR player, 3D projector setup or 3D TV workflow.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="demo">
-    <div class="wrap demo-panel">
-      <a class="demo-preview" href="https://youtu.be/eYxquKr1FzU" target="_blank" rel="noopener" aria-label="Open Vistora AI 3D demo on YouTube">
-        <img src="assets/product-visual.jpg" alt="Vistora AI 3D product demo preview">
-        <div class="play-card"><span>▶</span> See demo</div>
-        <div class="demo-caption"><strong>Vistora AI 3D demo</strong><em class="chip">Opens YouTube</em></div>
-      </a>
-      <div class="demo-copy">
-        <h2>See it in action.</h2>
-        <p>The demo opens on YouTube in a new tab. No video player is embedded on this page, so visitors will not see browser/player configuration errors.</p>
-        <ul class="checks">
-          <li>Windows app preview</li>
-          <li>Output folder and generated file</li>
-          <li>Half-OU 3D playback example</li>
-          <li>Free Trial and Pro options below</li>
-        </ul>
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Product demo + real Half-SBS 3D sample</h2>
+        <p>Watch how Vistora AI 3D works, then download an actual converted 3D file to test on your own compatible playback setup.</p>
+      </div>
+
+      <div class="demo-panel">
+        <a class="demo-preview" href="https://youtu.be/eYxquKr1FzU" target="_blank" rel="noopener" aria-label="Watch Vistora AI 3D product demo on YouTube">
+          <img src="assets/product-visual.jpg" alt="Vistora AI 3D product demo preview">
+          <div class="play-card"><span>▶</span> Product Demo</div>
+          <div class="demo-caption">
+            <strong>See the app and conversion workflow</strong>
+            <em class="chip">YouTube • 57 sec</em>
+          </div>
+        </a>
+
+        <div class="demo-copy">
+          <h2>See the software. Then test the real 3D output.</h2>
+          <p>
+            The YouTube video is a <strong>product demonstration</strong> showing the Vistora AI 3D interface and workflow.
+            It is not intended to reproduce the stereoscopic 3D effect on a normal 2D screen.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn secondary" href="https://youtu.be/eYxquKr1FzU" target="_blank" rel="noopener">
+              Watch Product Demo on YouTube
+            </a>
+          </div>
+
+          <div class="card" style="margin-top:22px;padding:22px">
+            <h3 style="margin-top:0">Real Half-SBS 3D Sample</h3>
+            <p>
+              Download a <strong>1 min 10 sec MKV</strong> created by Vistora AI 3D and play it on a compatible
+              3D TV, 3D projector, VR headset, or SBS-capable player.
+            </p>
+            <p class="note" style="margin-bottom:18px">
+              <strong>Important:</strong> on a normal 2D monitor the file will appear as two side-by-side views.
+              To see the stereoscopic 3D effect, use compatible 3D playback equipment or software.
+            </p>
+            <a class="btn" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_HalfSBS_3D_Sample_clip.mkv">
+              Download Half-SBS 3D Sample (MKV, 1:10)
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="formats">
     <div class="wrap">
-      <div class="section-title"><h2>Supported 3D output formats</h2><p>Choose the format that matches your playback setup.</p></div>
+      <div class="section-title">
+        <h2>Supported 3D output formats</h2>
+        <p>Choose the format that matches your playback setup.</p>
+      </div>
+
       <div class="grid formats">
         <div class="card format-card"><strong>Half-OU</strong><span>Half Over-Under</span></div>
         <div class="card format-card"><strong>Full-OU</strong><span>Full Over-Under</span></div>
@@ -203,19 +890,115 @@
 
   <section class="section" id="pricing">
     <div class="wrap">
-      <div class="section-title"><h2>Try first. Upgrade if it works for you.</h2><p>Start with the Free Trial. The Pro license removes the trial limits.</p></div>
+      <div class="section-title">
+        <h2>Try it free before requesting Pro</h2>
+        <p>Verify the workflow on your own PC and playback setup first. Upgrade only if it works for you.</p>
+      </div>
+
       <div class="grid pricing">
         <div class="card price-card">
-          <h3>Free Trial</h3><div class="price">$0 <small>trial</small></div>
-          <ul class="list"><li>30 sec / 1000 frames limit</li><li>Trial watermark</li><li>All main output formats</li><li>Local AI conversion</li></ul>
-          <a target="_blank" rel="noopener" class="btn secondary" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">Download Free Trial</a>
+          <h3>Free Trial</h3>
+          <div class="price">$0 <small>Test the converter on your own system.</small></div>
+
+          <ul class="list">
+            <li>Up to 90 seconds per trial conversion</li>
+            <li>Trial watermark</li>
+            <li>All main 3D output formats</li>
+            <li>Local AI conversion</li>
+          </ul>
+
+          <a class="btn secondary" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">
+            Download Free Trial
+          </a>
         </div>
+
         <div class="card price-card highlight">
-          <h3>Pro Early Access</h3><div class="price">By request <small>USD one-time</small></div>
-          <ul class="list"><li>No watermark</li><li>No 30 second trial limit</li><li>All supported 3D output formats</li><li>Early access launch price</li></ul>
-          <a target="_blank" rel="noopener" class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform">Request Pro Early Access</a>
-          <p class="note">Checkout link will be connected after payment setup.</p>
+          <h3>Pro Early Access</h3>
+          <div class="price">Full conversion <small>Available by request during Early Access.</small></div>
+
+          <ul class="list">
+            <li>No trial watermark</li>
+            <li>No 90-second trial limit</li>
+            <li>All supported 3D output formats</li>
+            <li>Early Access licensing</li>
+          </ul>
+
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform" target="_blank" rel="noopener">
+            Request Pro Early Access
+          </a>
+
+          <p class="note">Current license and purchase information is provided after your request.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="requirements">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>System requirements</h2>
+        <p>AI video conversion is demanding. Check your PC before installing.</p>
+      </div>
+
+      <div class="grid requirements">
+        <div class="card">
+          <h3>Recommended</h3>
+          <ul class="list">
+            <li>Windows 10 / Windows 11</li>
+            <li>NVIDIA RTX GPU, 6 GB+ VRAM recommended</li>
+            <li>Recent NVIDIA driver</li>
+            <li>SSD recommended</li>
+            <li>VR headset, 3D projector or 3D TV for playback</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Realistic expectations</h3>
+          <p>
+            The result is AI-generated stereoscopic 3D, not studio-authored native stereo footage.
+            Quality depends on the source video, motion, compression, settings and playback device.
+          </p>
+          <p class="note">
+            Use only video content you own or have rights to use. The software is not intended for DRM bypass,
+            ripping, streaming capture, Blu-ray decryption or pirated content.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Frequently asked questions</h2>
+        <p>Quick answers before you download.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Does Vistora AI 3D upload my video to the cloud?</summary>
+          <p>No. Conversion is performed locally on your Windows PC.</p>
+        </details>
+
+        <details>
+          <summary>What does the Free Trial include?</summary>
+          <p>The Free Trial lets you test the main conversion workflow and supported output formats. Trial output is limited to up to 90 seconds and includes a watermark.</p>
+        </details>
+
+        <details>
+          <summary>Which 3D formats are supported?</summary>
+          <p>Vistora AI 3D supports Half-OU, Full-OU, Half-SBS and Full-SBS output.</p>
+        </details>
+
+        <details>
+          <summary>What hardware is recommended?</summary>
+          <p>Windows 10 or 11 with a modern NVIDIA GPU is recommended. An RTX-class GPU with 6 GB or more VRAM and an SSD will provide a better experience.</p>
+        </details>
+
+        <details>
+          <summary>Is AI-generated 3D the same as native stereoscopic filming?</summary>
+          <p>No. Vistora AI 3D estimates scene depth from a 2D source and synthesizes stereoscopic views. Results vary by scene and source quality.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -223,37 +1006,49 @@
   <section class="section" id="download">
     <div class="wrap download-box">
       <div>
-        <h2>Download Free Trial</h2>
-        <p class="lead" style="font-size:18px">Download the Free Trial installer from the official GitHub Release.</p>
-        <a target="_blank" rel="noopener" class="btn" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">Download Trial</a>
-        <p class="note">Early access installer may be unsigned. Windows SmartScreen can show a warning.</p>
+        <h2>Ready to test Vistora AI 3D?</h2>
+        <p class="lead" style="font-size:18px">
+          Start with the Free Trial and test the converter on your own NVIDIA GPU PC and 3D playback setup.
+        </p>
+        <p class="note">
+          The Early Access installer may be unsigned, so Windows SmartScreen can display a warning.
+          Download only from the official Vistora AI 3D GitHub Release link on this page.
+        </p>
       </div>
-      <div id="buy">
-        <h2>Request Pro Early Access</h2>
-        <p class="lead" style="font-size:18px">Pro Early Access is currently handled manually. Submit a request to receive license information.</p>
-        <a target="_blank" rel="noopener" class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform">Request Pro Early Access</a>
-        <p class="note">Pro license removes trial watermark and short clip limit.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="requirements">
-    <div class="wrap">
-      <div class="section-title"><h2>System requirements</h2><p>AI video conversion is demanding. A modern NVIDIA GPU is strongly recommended.</p></div>
-      <div class="grid requirements">
-        <div class="card"><h3>Recommended</h3><ul class="list"><li>Windows 10 / Windows 11</li><li>NVIDIA RTX GPU, 6GB+ VRAM recommended</li><li>Recent NVIDIA driver</li><li>SSD recommended</li><li>VR headset, 3D projector, or 3D TV for playback</li></ul></div>
-        <div class="card"><h3>Realistic expectations</h3><p>The result is AI-generated stereoscopic 3D, not studio-authored native stereo footage. Quality depends on the source video, motion, compression, settings, and playback device.</p><p class="note">Use only video content you own or have rights to use. Not intended for DRM bypass, ripping, streaming capture, Blu-ray decryption, Netflix capture, or pirated movies.</p></div>
+      <div class="cta-actions">
+        <a class="btn" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_Pro_Setup_v0.17A_RC_FullAuto.exe">
+          Download Free Trial
+        </a>
+
+        <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSep_lDjYtmgQzmYCpA8bipaGjhKP7qb1rM2Rz321Yssmh3T3Q/viewform" target="_blank" rel="noopener">
+          Request Pro Early Access
+        </a>
+
+        <a class="btn secondary" href="https://github.com/robotand/ai-2d-to-3d-video-converter/releases/download/v0.17a-beta/VistoraAI3D_HalfSBS_3D_Sample_clip.mkv">
+          Download Half-SBS 3D Sample
+        </a>
+
+        <a class="btn ghost" href="https://www.youtube.com/@VistoraAI3D" target="_blank" rel="noopener">
+          Visit YouTube Channel
+        </a>
       </div>
     </div>
   </section>
 
   <section class="section legal">
     <div class="wrap">
-      <p><strong>Early Access Notice:</strong> Vistora AI 3D Converter Pro is an early access Windows application. Results may vary depending on source video, GPU, settings, and playback device.</p>
-      <p><strong>SmartScreen Notice:</strong> The early access installer may be unsigned. Windows may show a warning until code signing is added.</p>
+      <p><strong>Early Access Notice:</strong> Vistora AI 3D Converter Pro is an Early Access Windows application. Results may vary depending on source video, GPU, settings and playback device.</p>
+      <p><strong>SmartScreen Notice:</strong> The Early Access installer may be unsigned. Windows can show a warning until code signing is added.</p>
     </div>
   </section>
 </main>
-<footer><div class="wrap">© 2026 Vistora AI 3D. AI 2D to 3D video converter for Windows.</div></footer>
+
+<footer>
+  <div class="wrap">
+    © 2026 Vistora AI 3D · AI 2D to 3D Video Converter for Windows ·
+    <a href="https://www.youtube.com/@VistoraAI3D" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</footer>
 </body>
 </html>
